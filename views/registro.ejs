@@ -7,18 +7,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Estudiantes</title>
-    <link rel="stylesheet" href="/style.css"> <!-- Asegúrate de que tu archivo CSS esté en la carpeta public -->
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
     <h2>Formulario de Registro</h2>
 
-    <form action="/registro" method="post" onsubmit="return validarRegistro();"> <!-- Agregado: onsubmit -->
+    <form action="/registro" method="post" onsubmit="return validarRegistro();">
         <label for="carrera">Carrera:</label>
         <select id="carrera" name="carrera">
-            <option value="analisis_sistemas">Análisis de Sistemas</option>
-            <option value="produccion_agraria">Producción Agraria</option>
+            <option value="analisis sistemas">Análisis de Sistemas</option>
+            <option value="produccion agraria">Producción Agraria</option>
         </select><br>
 
         <label for="nombres">Nombres:</label>
@@ -39,12 +39,15 @@
 
         <label for="contrasena">Contraseña:</label>
         <input type="password" id="contrasena" name="contrasena" required><br>
-
-        <input type="checkbox" id="terminos_condiciones" name="terminos_condiciones" required>
-        <label for="terminos_condiciones">Aceptar los Términos y Condiciones</label><br>
+        <label class="checkbox-label" for="terminos_condiciones">
+            Aceptar los Términos y Condiciones
+            <input type="checkbox" id="terminos_condiciones" name="terminos_condiciones" required>
+        </label>
 
         <input type="submit" value="Registrar">
     </form>
+
+
     <script>
         function validarRegistro() {
             var carrera = document.getElementById('carrera').value;
@@ -56,27 +59,27 @@
             var contrasena = document.getElementById('contrasena').value;
             var terminosCondiciones = document.getElementById('terminos_condiciones').checked;
 
-            // Validar que todos los campos estén completos
             if (!carrera || !nombres || !apellidos || !dni || !fechaNacimiento || !correoInstitucional || !contrasena || !terminosCondiciones) {
                 alert('Todos los campos deben estar completos.');
                 return false;
             }
 
-            // Validar el formato del correo institucional
             if (!correoInstitucional.endsWith('@vallegrande.edu.pe')) {
                 alert('El correo institucional debe terminar con @vallegrande.edu.pe');
                 return false;
             }
 
-            // Validar que el DNI tenga 8 dígitos
             if (dni.length !== 8 || isNaN(dni)) {
                 alert('El número de DNI debe tener 8 dígitos.');
                 return false;
             }
 
+            alert('¡Registro exitoso!');
+
             return true;
         }
     </script>
+
 </body>
 
 </html>
