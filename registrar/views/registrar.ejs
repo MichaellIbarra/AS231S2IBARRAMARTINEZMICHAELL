@@ -11,7 +11,7 @@
 <body>
 
 
-    <form action="/registro" method="post">
+    <form action="/registro" method="post" onsubmit="return validarRegistro();">
         <h1>Formulario de Registro</h1>
         <label for="carrera">Carrera:</label>
         <select id="carrera" name="carrera">
@@ -45,7 +45,32 @@
         <input type="submit" value="Registrar">
     </form>
 
+   <script>
+        function validarRegistro() {
+            var carrera = document.getElementById('carrera').value;
+            var nombres = document.getElementById('nombres').value;
+            var apellidos = document.getElementById('apellidos').value;
+            var dni = document.getElementById('dni').value;
+            var fechaNacimiento = document.getElementById('fecha_nacimiento').value;
+            var correoInstitucional = document.getElementById('correo_institucional').value;
+            var contrasena = document.getElementById('contrasena').value;
+            var terminosCondiciones = document.getElementById('terminos_condiciones').checked;
 
+            if (!carrera || !nombres || !apellidos || !dni || !fechaNacimiento || !correoInstitucional || !contrasena || !terminosCondiciones) {
+                alert('Todos los campos deben estar completos.');
+                return false;
+            }
+
+            if (dni.length !== 8 || isNaN(dni)) {
+                alert('DNI debe tener 8 dígitos.');
+                return false;
+            }
+
+            alert('¡Registro exitoso!');
+
+            return true;
+        }
+    </script>
 
 </body>
 
