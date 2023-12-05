@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiantes</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+
+    <form action="/registro" method="post">
+        <h1>Formulario de Registro</h1>
+        <label for="carrera">Carrera:</label>
+        <select id="carrera" name="carrera">
+            <option value="analisis sistemas">Análisis de Sistemas</option>
+            <option value="produccion agraria">Producción Agraria</option>
+        </select><br>
+
+        <label for="nombres">Nombres:</label>
+        <input type="text" id="nombres" name="nombres" required><br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required><br>
+
+
+        <label for="dni">Número de DNI:</label>
+        <input type="text" id="dni" name="dni" required><br>
+
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br>
+
+        <label for="correo_institucional">Correo Institucional:</label>
+        <input type="email" id="correo_institucional" name="correo_institucional" required><br>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" name="contrasena" required><br>
+        <label class="checkbox-label" for="terminos_condiciones">
+            Aceptar los Términos y Condiciones
+            <input type="checkbox" id="terminos_condiciones" name="terminos_condiciones" required>
+        </label>
+
+        <input type="submit" value="Registrar">
+    </form>
+
+
+
+</body>
+
+</html>
